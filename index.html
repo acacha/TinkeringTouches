@@ -13,15 +13,21 @@
 <output id="output"></output>
 
 <h1>Canvas:</h1>
-<canvas id="canvas" width="800" height="800" style="border:1px solid #000000;"></canvas>
+<canvas id="canvas" width="100" height="100" style="border:1px solid #000000;"></canvas>
 <button onclick="window.init()">Initialize</button>
 
 <script>
 
-function report(newContent) {
-    var output = document.getElementById('output');
+function delayedInnerHTML(newContent){
     output.innerHTML += newContent;
 }
+
+function report(newContent) {
+    var output = document.getElementById('output');
+    setTimeout(function() { delayedInnerHTML(newContent) }, 100);
+}
+
+
 
 function start(evt) {
   evt.preventDefault();
